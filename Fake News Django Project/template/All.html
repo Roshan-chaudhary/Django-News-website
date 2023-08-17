@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Project</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  </head>
+  <body>
+     
+
+{% extends 'base.html' %}
+
+    {% block body %}
+
+
+
+<!--  Slider Footer -->
+
+
+
+<div id="carouselExampleIndicators" class="carousel slide">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src=" https://images.unsplash.com/photo-1615938165708-feda49ca470c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Y29tcHV0ZXIlMjBsYWJ8ZW58MHx8MHx8fDA%3D&w=1000&q=80"  height="300"    width="200"          class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src=" https://img.freepik.com/free-photo/cascade-boat-clean-china-natural-rural_1417-1356.jpg?w=740&t=st=1689596497~exp=1689597097~hmac=8d3b11fc13d444cced9f6426408e22e141fd13b2794fded6425cba9f3b87ebfd  " height="300"     width="200"             class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="https://img.freepik.com/free-photo/wide-angle-shot-single-tree-growing-clouded-sky-during-sunset-surrounded-by-grass_181624-22807.jpg?w=2000    " class="d-block w-100"  height="300"   width="200"  alt="...">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+<!-- E-commerce  -->
+
+
+
+<h4  style="background-color:pink;"   class="cardtitle  text-center  my-1 py-1  ">My projects</h4>  
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    {% for x in img %}
+    <div class="col">
+      <div class="card h-100">
+     <a  href="https://www.alibaba.com/" > <img   src="{{x.photo.url}}" height="200"  width="100"   class="card-img-top" > </a>
+        <div class="card-body">
+          <h5  style="color:blue;" class="text-center" >{{x.title}}</h5>
+          <p class="card-text">{{x.des}}</p>
+        </div>
+        <div class="card-footer">
+       <a   href="https://www.alibaba.com/" > <button  class="btn btn-outline-primary">Click</button></a>
+        </div>
+      </div>
+    </div>
+      {% endfor %}
+    </div>
+  </div>
+
+
+
+
+<!--  Contact Footer -->
+<div class="container my-3">
+  <h2    style="color:red;"  class="text-center  my-3" >Contact me</h2>
+  
+  <form    method="POST"  >
+    {% csrf_token %}
+    <div class="mb-3">
+      <label for="name" class="form-label">Name:- </label>
+      <input type="name" class="form-control" id="name"    name="name" placeholder="EX: Roshan chy"  >
+    </div>
+    <div class="mb-3">
+      <label for="email" class="form-label">EMAIL ID:- </label>
+      <input type="email" class="form-control" id="email"    name="email"  placeholder="EX:roshan313@gmail.com"  >
+    </div>
+    <div class="mb-3">
+      <label for="phone" class="form-label">Phone Number:- </label>
+      <input type="number" class="form-control" id="phone"    name="phone"  placeholder="EX : +9779809193367"    >
+    </div>
+    <div class="mb-3">
+      <label for="concern" class="form-label">Concern:- </label><br>
+      <textarea   name="concern"   id="concern"  name="concern" cols="112" rows="6"></textarea>
+    </div>
+  
+  
+    <div class="mb-3 form-check">
+      <input type="checkbox" class="form-check-input" id="exampleCheck1" checked        >
+      <label class="form-check-label" for="exampleCheck1">Remember Me : </label>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+  
+  </div>
+
+
+  {% endblock %}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+  </body>
+</html>   

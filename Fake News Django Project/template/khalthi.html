@@ -1,0 +1,59 @@
+<html>
+<head>
+    <script src="https://khalti.s3.ap-south-1.amazonaws.com/KPG/dist/2020.12.17.0.0.0/khalti-checkout.iffe.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+</head>
+<body>
+    
+   
+ <div class="text-center"  >
+    <div class="text-center">
+        <img src=" https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4qOo3tMi_elA7q4pv-vLUkxa9pqZ-UX27CXfOnqGsXIBFHR47rqWT5xZ04m9qiHyHH0Q&usqp=CAU " class="rounded" alt="...">
+      </div>
+   <button id="payment-button"   class="btn btn-outline-primary" >Pay with Khalti</button> 
+   
+
+
+            <script>
+                var config = {
+                    // replace the publicKey with yours
+                    "publicKey": "test_public_key_dc74e0fd57cb46cd93832aee0a390234",
+                    "productIdentity": "1234567890",
+                    "productName": "Dragon",
+                    "productUrl": "http://gameofthrones.wikia.com/wiki/Dragons",
+                    "paymentPreference": [
+                        "KHALTI",
+                        "EBANKING",
+                        "MOBILE_BANKING",
+                        "CONNECT_IPS",
+                        "SCT",
+                        ],
+                    "eventHandler": {
+                        onSuccess (payload) {
+                            // hit merchant api for initiating verfication
+                            console.log(payload);
+                        },
+                        onError (error) {
+                            console.log(error);
+                        },
+                        onClose () {
+                            console.log('widget is closing');
+                        }
+                    }
+                };
+           
+                var checkout = new KhaltiCheckout(config);
+                var btn = document.getElementById("payment-button");
+                btn.onclick = function () {
+                    // minimum transaction amount must be 10, i.e 1000 in paisa.
+                    checkout.show({amount: 50000});
+                    
+                }
+            </script>
+            <!-- Paste this code anywhere in you body tag -->
+           
+        </div>
+
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+          </body>
+        </html>
